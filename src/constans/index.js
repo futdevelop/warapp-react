@@ -1,46 +1,46 @@
 const statsData = [
       {
-        img: "/src/assets/icons/pig.svg",
+        img: "/src/assets/icons/pig.png",
         name: 'особового складу'
       },
       {
-        img: "/src/assets/icons/tank.png",
+        img: "/src/assets/icons/tanks.png",
         name: 'танків'
       },
       {
-        img: "/src/assets/icons/bbm.png",
+        img: "/src/assets/icons/armoured_fighting_vehicles.png",
         name: 'ББМ'
       },
       {
-        img: "/src/assets/icons/art-system.png",
+        img: "/src/assets/icons/artillery_systems.png",
         name: 'арт. систем'
       },
       {
-        img: "/src/assets/icons/RSZW.png",
+        img: "/src/assets/icons/mlrs.png",
         name: 'РСЗВ'
       },
       {
-        img: "/src/assets/icons/PPO.png",
+        img: "/src/assets/icons/aa_warfare_systems.png",
         name: 'засобів ППО'
       },
       {
-        img: "/src/assets/icons/plane.png",
+        img: "/src/assets/icons/planes.png",
         name: 'літаків'
       },
       {
-        img: "/src/assets/icons/helicopter.png",
+        img: "/src/assets/icons/helicopters.png",
         name: 'гелікоптерів'
       },
       {
-        img: "/src/assets/icons/spec_tech.png",
+        img: "/src/assets/icons/vehicles_fuel_tanks.png",
         name: 'автотехніки та автоцистерн'
       },
             {
-        img: "/src/assets/icons/warship.png",
+        img: "/src/assets/icons/warships_cutters.png",
         name: 'кораблів/катерів'
       },
       {
-        img: "/src/assets/icons/rocket.png",
+        img: "/src/assets/icons/cruise_missiles.png",
         name: 'крилатих ракет'
       },
       {
@@ -48,8 +48,12 @@ const statsData = [
         name: 'БПЛА'
       },
       {
-        img: "/src/assets/icons/special_equip.png",
+        img: "/src/assets/icons/special_military_equip.png",
         name: 'спец. техніки'
+      },
+      {
+        img: "/src/assets/icons/atgm_srbm_systems.png",
+        name: 'тактичні ракетні комплекси'
       },
       {
         img: "/src/assets/icons/submarines.png",

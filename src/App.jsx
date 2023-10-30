@@ -10,6 +10,7 @@ const App = () => {
   const [dayOfWar, setDayOfWar] = useState(0);
   const [date, setDate] = useState(0);
   const [data, setData] = useState({});
+  const [dataForToday, setDataForToday] = useState({});
 
     const { getWarInfo, getWarStatistics } = useWarStatusService();
 
@@ -21,7 +22,11 @@ const App = () => {
         .then(res => setDate(res.data.data.current_date));
 
       getWarStatistics()
-        .then(res => setData(res));
+        .then(res => setData(res.stats));
+
+      getWarStatistics()
+        .then(res => setDataForToday(res.increase));
+
     }, [])
 
     return (
@@ -36,29 +41,29 @@ const App = () => {
             </div>
           </div>
         </div>
+
         <div className="stat-blocks">
             {statsData.map((statData, index) => {
               const keys = Object.keys(data);
-              console.log(keys)
               return (
                 <div className="stat-block">
                   <img className='stat-block-icon' src={statData.img} alt="" />
                   <div>
-                    <p className="stat-block__num">
-                      {data[keys[index]] === 4 ? 1 : data[keys[index]]}
-                    </p>
+                      <p className="stat-block__stat">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>
                     <p className="stat-block__name">{statData.name}</p>
                   </div>
                 </div>
               )
             })}
-            <div className="stat-block block-donate">
-              <h2>Хочеш збільшити стату?</h2>
-              <div className="stat-block-donate">
+        </div>
+
+            <div className="block-donate">
+              <h2>Бажаєш збільшити стату?</h2>
+              <div className="block-donate-btn">
+                <img src="/src/assets/charity-icons/comeBackAlive.png" alt="" />
                 <a href="https://savelife.in.ua/en/donate-en/" target="_blank"><p>Повернись живим</p></a>
               </div>
             </div>
-        </div>
       </div>
     );
 }

@@ -10,7 +10,7 @@ const useWarStatusService = () => {
 	
 	const getWarStatistics = async () => {
 		const res = await axios.get(`${_API_BASE}/statistics/latest`)
-			return res.data.data.stats;
+			return res.data.data;
 	}
 
 	return {
@@ -21,4 +21,3 @@ const useWarStatusService = () => {
 }
 
 export default useWarStatusService;
-

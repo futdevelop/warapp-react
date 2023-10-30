@@ -7,10 +7,9 @@ body {
 	background-size: 100%;	
 	color: #070606;
 	font-family: 'Roboto Mono', monospace;
-}
-
-.app {
-
+	/* background: linear-gradient(to bottom left, #0074D9, #FFD700); */
+	background: linear-gradient(220deg, #0074D9, white, #FFD700);
+  	/* background-size: 100% 100%; */
 }
 
 .top {
@@ -18,12 +17,11 @@ body {
 	margin-right: 3%;
 }
 
-
 .block-info {
 	display: flex;
 	justify-content: start;
 	align-items: center;
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 700;
 	margin-bottom: 30px;
 }
@@ -32,7 +30,7 @@ body {
 }
 
 .block-info-day {
-	color: #0353f3
+	color: #3905e3
 }
 
 .stat-blocks {
@@ -40,12 +38,13 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	background-color: inherit;
 }
 
 .stat-block {
 	user-select: none;
 	width: 32%;
-	background-color: white;
+	background-color: inherit;
 	border-bottom: 1px solid black;
 	border-right: 1px solid black;
 	display: flex;
@@ -59,65 +58,59 @@ body {
   border-right: 0;
 }
 
+.stat-block:nth-child(14n), 
+.stat-block:nth-child(13n),
 .stat-block:last-child {
-	border-bottom: 0;
+  border-bottom: 0;
 }
 
 .stat-block-icon {
-	width: 150px;
+	width: 100px;
+	margin-right: 30px;
 }
 
-.stat-block__num {
+.stat-block__stat {
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 26px;
 	margin: 0;
+	color: #414A4E;
 }
 
 .stat-block__name {
 	font-weight: 400;
 	font-size: 22px;
 	margin: 0;
+	/* color: #71797E; */
 }
 
 .block-donate {
 	display: flex;
-	flex-direction: column;
-}
-
-.stat-block-donate {
-	background-color: aqua;
-	padding: 0px 20px 0px 20px;
-	border-radius: 20px;
-}
-
-.stat-block-donate a {
-	padding: 0;
-	text-decoration: none;
-}
-
-.item-2 {
-	background-color: coral;
-}
-
-.item-3 {
-	background-color: darkseagreen;
-}
-
-.item-4 {
-	background-color: darkgoldenrod;
-}
-
-.item-5 {
-	background-color: rgb(9, 209, 9);
-}
-
-.item-6 {
-	background-color: rgb(208, 7, 222);
-}
-
-.item-center {
-	border: 2px dashed black;
-	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	margin-top: 20px;
+	margin-bottom: 100px;
+	color: #414A4E;
+}
+
+.block-donate-btn {
+	background: linear-gradient(to bottom right, #5fabed, #f7dd49);
+	padding: 0px 50px 0px 50px;
+	border-radius: 30px;
+	border: 6px solid white;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.block-donate-btn a {
+	padding: 0;
+	text-decoration: none;
+	font-size: 18px;
+	color: #000;
+}
+
+.block-donate-btn img {
+	margin-right: 10px;
 }
