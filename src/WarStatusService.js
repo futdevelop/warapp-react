@@ -1,22 +1,18 @@
-import axios from 'axios'; 
+import { useHttp } from "./hooks/http.hook";
 
 const useWarStatusService = () => {
+	const { loading, request, process, error, clearError, setProcess } = useHttp();
 	const _API_BASE = 'https://russianwarship.rip/api/v2';
 
 	const getWarInfo = async () => {
-		const res = await axios.get(`${_API_BASE}/war-info`)
-			return res;
+		const res = await request(`${_API_BASE}/war-info`)
+			return res.data;
 	}
 	
 	const getWarStatistics = async (date) => {
-		if (date) {
-			const res = await axios.get(`${_API_BASE}/statistics/${date}`)
-			// console.log(res.data.data)
-			return res.data.data;
-		} else {
-			const res = await axios.get(`${_API_BASE}/statistics/latest`)
-			return res.data.data;
-		}
+		const url = date ? `${_API_BASE}/statistics/${date}` : `${_API_BASE}/statistics/latest`;
+		const res = await request(url);
+			return res.data;
 	}
 
 	return {
@@ -27,3 +23,4 @@ const useWarStatusService = () => {
 }
 
 export default useWarStatusService;
+
