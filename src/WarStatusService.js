@@ -8,9 +8,15 @@ const useWarStatusService = () => {
 			return res;
 	}
 	
-	const getWarStatistics = async () => {
-		const res = await axios.get(`${_API_BASE}/statistics/latest`)
+	const getWarStatistics = async (date) => {
+		if (date) {
+			const res = await axios.get(`${_API_BASE}/statistics/${date}`)
+			// console.log(res.data.data)
 			return res.data.data;
+		} else {
+			const res = await axios.get(`${_API_BASE}/statistics/latest`)
+			return res.data.data;
+		}
 	}
 
 	return {
