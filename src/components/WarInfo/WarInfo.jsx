@@ -4,7 +4,7 @@ import statsData from "../../constants/index";
 import BeatLoader from "react-spinners/BeatLoader";
 
 
-const WarInfo = ({ userValue }) => {
+const WarInfo = ({ userValue, handleLoading }) => {
   const [data, setData] = useState({});
   const [dataForToday, setDataForToday] = useState({});
   const [loading, setLoading] = useState(true);
@@ -15,6 +15,10 @@ const WarInfo = ({ userValue }) => {
 	useEffect(() => {
 		setValueDate(userValue);
 	}, [userValue])
+
+    useEffect(() => {
+      handleLoading(loading)
+    }, [loading])
 
 		useEffect(() => {
 			if(valueDate !== undefined) {

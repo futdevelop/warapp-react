@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useWarStatusService from "../../WarStatusService";
-import BeatLoader from "react-spinners/BeatLoader";
 
-
-const Header = ({ userValue }) => {
+const Header = ({ userValue, loading }) => {
   const [dayOfWar, setDayOfWar] = useState(0);
   const [date, setDate] = useState('');
-  const [loading, setLoading] = useState(true);
   const [valueDate, setValueDate] = useState('');
 
     const { getWarInfo, getWarStatistics } = useWarStatusService();
@@ -19,8 +16,6 @@ const Header = ({ userValue }) => {
       if(valueDate !== undefined && valueDate !== '') {
         getWarStatistics(valueDate)
           .then(res =>  {
-        // setLoading(false)
-            // console.log(res.day)
             setDayOfWar(res.day);
             setDate(valueDate);
           })
@@ -30,24 +25,12 @@ const Header = ({ userValue }) => {
     useEffect(() => {
       getWarInfo()
         .then(res =>  {
-			 setLoading(false)
           setDayOfWar(res.current_day);
           setDate(res.current_date);
         })
     }, []) 
 
-        if(loading) {
-			return (
-          <div className='loading-header'>
-            <BeatLoader
-              color={'#fff'}
-              loading={loading}
-              className='loading'
-              size={1}
-              aria-label="Loading Spinner"
-              data-testid="loader"/>
-          </div>
-        )} else {
+    if(!loading) {
 			return (
 				<header className="header">
 					<div className="header-logo">
@@ -63,9 +46,8 @@ const Header = ({ userValue }) => {
 							<p className="dynamic-info-day"><span className="dynamic-info-dayofwar">{dayOfWar}</span>-й день війни</p>
 					</div>
 				</header>
-        )}
-
-
+      )
+    }
 }
 
 export default Header;

@@ -6,20 +6,17 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [userValue, setUserValue] = useState();
+  const [isLoaded, setIsLoaded] = useState(true);
 
-  const updateData = value => {
-    setUserValue(value);
-  }
+  const updateData = value => setUserValue(value);
 
-  // useEffect(() => {
-  //   console.log(userValue);
-  // }, [userValue])
+  const handleLoading = value => setIsLoaded(value);
 
   return (
       <div className="app">
-            <Header userValue={userValue}/>
-            <WarInfo userValue={userValue} />
-            <Footer updateData={updateData} />
+            <Header userValue={userValue} loading={isLoaded}/>
+            <WarInfo userValue={userValue} handleLoading={handleLoading} />
+            <Footer updateData={updateData} loading={isLoaded}/>
       </div>
   )
 }
