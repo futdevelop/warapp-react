@@ -20,7 +20,7 @@ const statsData = [
         name: 'РСЗВ'
       },
       {
-        img: "/src/assets/icons/aa_warfare_systems.png",
+        img: "/src/assets/icons/a_warfare_systems.png",
         name: 'засобів ППО'
       },
       {

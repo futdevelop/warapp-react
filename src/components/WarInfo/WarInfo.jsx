@@ -4,17 +4,40 @@ import statsData from "../../constants/index";
 import BeatLoader from "react-spinners/BeatLoader";
 
 
-const WarInfo = () => {
+const WarInfo = ({ userValue }) => {
   const [data, setData] = useState({});
   const [dataForToday, setDataForToday] = useState({});
   const [loading, setLoading] = useState(true);
+  const [valueDate, setValueDate] = useState('');
 
   const { getWarStatistics } = useWarStatusService();
+
+	useEffect(() => {
+		setValueDate(userValue);
+	}, [userValue])
+
+		useEffect(() => {
+			if(valueDate !== undefined) {
+				if(valueDate[4] == '-' && valueDate[7] == '-') {
+				setLoading(true);
+					getWarStatistics(valueDate)
+						.then(res => {
+							setLoading(false)
+							setData(res.stats);
+							setDataForToday(res.increase);
+						})
+						.catch((e) => {
+							console.log(e)
+							setLoading(false)
+						})
+				}
+			}
+		}, [valueDate])
 
   useEffect(() => {
 		getWarStatistics()
 			.then(res => {
-			 	setLoading(!loading)
+			 	setLoading(false)
 				setData(res.stats);
 				setDataForToday(res.increase);
 			});
@@ -37,7 +60,7 @@ const WarInfo = () => {
 					{statsData.map((statData, index) => {
 						const keys = Object.keys(data);
 						return (
-							<div className="war-info-block info-block">
+							<div key={index} className="war-info-block info-block">
 							<img className='info-block-icon' src={statData.img} alt="" />
 							<div>
 								<p className="info-block-stat">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>

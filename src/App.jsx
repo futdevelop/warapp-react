@@ -1,37 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import WarInfo from "./components/warInfo/WarInfo";
 import Header from "./components/Header/Header";
-// import PacmanLoader from "react-spinners/PacmanLoader";
+import Footer from './components/Footer/Footer';
 
 const App = () => {
-  // const [loading, setLoading] = useState(true);
+  const [userValue, setUserValue] = useState();
 
-  // const toggleLoading = () => {
-  //   console.log('success')
-  //   setLoading(!loading);
-  // }
+  const updateData = value => {
+    setUserValue(value);
+  }
 
-    return (
+  // useEffect(() => {
+  //   console.log(userValue);
+  // }, [userValue])
+
+  return (
       <div className="app">
-        {/* {loading ? (
-          <div className='loading'>
-            <PacmanLoader
-              color={'#414A4E'}
-              loading={loading}
-              className='loading'
-              size={50}
-              aria-label="Loading Spinner"
-              data-testid="loader"/>
-          </div>
-        ) : (
-          <> */}
-            <Header />
-            <WarInfo />
-          {/* </>
-        )} */}
+            <Header userValue={userValue}/>
+            <WarInfo userValue={userValue} />
+            <Footer updateData={updateData} />
       </div>
-    );
+  )
 }
 
 export default App;
