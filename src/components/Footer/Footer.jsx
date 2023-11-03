@@ -21,9 +21,9 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 
   if(isLoaded) {
 		return (
-			<footer className='p-0 m-0 bg-[#414A4E] text-[#fff] flex justify-between py-[20px] px-[50px] h-[130px] items-center'>
-				<div className='flex justify-center items-center w-[60%]'>
-					<p className='mr-[20px] text-[20px]'>Дізнайся статистику за інший день</p>
+			<footer className='p-0 m-0 bg-[#414A4E] text-[#fff] flex justify-between py-[20px] 2xl:px-[50px] xl:px-[40px] lg:px-[30px] md:px-[20px] px-[20px] sm:h-[130px] items-center sm:flex-row flex-col md:pb-[20px] pb-[50px]'>
+				<div className='flex justify-center items-center xl:w-[60%] md:w-[70%] w-[100%] lg:flex-row flex-col'>
+					<p className='mr-[20px] 2xl:text-[20px] xl:text-[20px] lg:text-[20px] md:text-[20px] sm:text-[26px] text-[18px] lg:mb-0 mb-[20px] font-bold'>Дізнайся статистику за інший день</p>
 					<form 
 						action=""
 						onSubmit={handleSubmit}>
@@ -38,7 +38,7 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 						/>
 					</form>
 				</div>
-				<div className='w-[40%] flex justify-center items-center'>
+				<div className='xl:w-[40%] md:w-[30%] sm:w-[30%] w-[100%]  flex justify-center items-center mt-[20px] sm:mt-0'>
 					<p>Slava Ukraine!</p>
 				</div>
 			</footer>

@@ -50,15 +50,15 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 
 		if(isLoaded) {
 		return (
-			<div className="flex justify-center items-center flex-wrap bg-[inherit] pb-[40px]">
+			<div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center bg-[inherit] pb-[40px]">
 				{statsData.map((statData, index) => {
 					const keys = Object.keys(data);
 					return (
-						<div key={index} className="war-info-block select-none w-[32%] bg-[inherit] border-b-[1px] border-r-[1px] border-black flex items-center justify-start pl-[10px] h-[130px]">
-						<img className='w-[100px] mr-[30px]' src={statData.img} alt="" />
+						<div key={index} className="war-info-block sm:pl-[10px] pl-[10%] select-none bg-[inherit] border-b-[1px] border-r-[1px] border-black flex items-center sm:justify-start justify-start h-[130px]">
+							<img className='2xl:w-[100px] xl:w-[90px] lg:w-[85px] w-[100px] 2xl:mr-[30px] xl:mr-[20px] md:mr-[20px] mr-[30px]' src={statData.img} alt="" />
 						<div>
-							<p className="font-bold text-[26px] m-0 text-[#414a4e] ">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>
-						<p className="font-normal text-[22px] m-0 text-[#71797E]">{statData.name}</p>
+							<p className="font-bold 2xl:text-[26px] xl:text-[24px] lg:text-[22px] md:text-[20px] text-[18px] m-0 text-[#414a4e]">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>
+						<p className="font-normal 2xl:text-[22px] xl:text-[20px] text-[18px] m-0 text-[#71797E]">{statData.name}</p>
 						</div>
 					</div>
 					)

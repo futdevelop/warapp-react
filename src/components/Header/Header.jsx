@@ -41,18 +41,13 @@ const Header = ({ userValue, isLoaded, handleHeaderLoading }) => {
 
     if(isLoaded) {
 			return (
-				<header className="bg-[#414A4E] text-[#fff] flex items-center p-[20px] px-[70px]">
-        <div className="flex w-[60%] items-center">
-            <div className="flex justify-center items-center w-[10%] h-[80%] mr-[50px]">
-              <img className='img' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Security_Service_of_Ukraine_Emblem.svg/1200px-Security_Service_of_Ukraine_Emblem.svg.png" alt="defense-ua" />
+				<header className="bg-[#414A4E] text-[#fff] max-w-[100%] flex md:flex-row flex-col justify-between items-center p-[20px] 2xl:px-[70px] xl:px-[50px] lg:px-[40px] md:px-[30px] px-[20px]">
+            <div className="font-bold xl:ml-[50px] lg:ml-[30px] md:ml-[20px] ml-[10px] align-start">
+              <p className="2xl:text-[20px] xl:text-[18px] text-[14px] mb-[5px] md:mb-0">Генеральний штаб ЗС України інформує</p>
+              <h1 className="2xl:text-[30px] xl:text-[24px] lg:text-[22px] text-[20px] flex-wrap">Загальні бойові втрати російського окупанта</h1>
             </div>
-            <div className="font-bold">
-              <p className="text-[18px]">Генеральний штаб ЗС України інформує</p>
-              <h1 className="text-[30px]">Загальні бойові втрати російського окупанта</h1>
-            </div>
-        </div>
-						<div className="flex flex-col items-end text-[22px] font-bold w-[40%] pr-[50px]">
-							<p className="mb-[10px]">{date}</p>
+						<div className="flex md:flex-col md:mt-0 mt-[20px] flex-row items-end 2xl:text-[22px] xl:text-[20px] lg-[18px] md:text-[16px] font-bold lg:w-[30%] ">
+							<p className="md:mb-[10px] mb-0 md:mr-0 mr-[15px]">{date}</p>
 							<p className="m-[0px]"><span className="text-[red]">{dayOfWar}</span>-й день війни</p>
 					</div>
 				</header>
