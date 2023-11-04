@@ -40,3 +40,15 @@ xl	1280px
 	border-bottom: 0;
 	}
 }
+
+@media(max-width: 640px) {
+	.war-info-block {
+		border-right: 0;
+	}
+}
+
+@media(max-width: 1024px) {
+	.war-info-block:nth-child(2n) {
+		border-right: 0;
+	}
+}
