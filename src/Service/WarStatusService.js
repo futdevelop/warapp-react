@@ -1,4 +1,4 @@
-import { useHttp } from "./hooks/http.hook";
+import { useHttp } from "../hooks/http.hook";
 
 const useWarStatusService = () => {
 	const { loading, request, process, error, clearError, setProcess } = useHttp();

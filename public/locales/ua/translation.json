@@ -1,0 +1,22 @@
+{
+	"inform": "Генеральний штаб ЗС України інформує",
+	"losses": "Загальні бойові втрати російського окупанта",
+	"dayOfWar": "-й день війни",
+	"personnel_units": "особового складу",
+	"tanks": "танків",
+	"armoured_fighting_vehicles": "ББМ",
+	"artillery_systems": "арт. систем",
+	"mlrs": "РСЗВ",
+	"aa_warfare_systems": "засобів ППО",
+	"planes": "літаків",
+	"helicopters": "гелікоптерів",
+	"vehicles_fuel_tanks": "автотехніки та автоцистерт",
+	"warships_cutters": "кораблів/катерів",
+	"cruise_missiles": "крилатих ракет",
+	"uav_systems": "БПЛА",
+	"special_military_equip": "спец. техніки",
+	"atgm_srbm_systems": "тактичні ракетні комплекси",
+	"submarines": "підводних човнів",
+	"search_title": "Дізнайся статистику за інший день",
+	"slava_ukraine": "Слава Україні!"
+}

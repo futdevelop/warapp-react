@@ -1,21 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
 import { InputMask } from "primereact/inputmask";
-import { Button } from 'primereact/button';
-import { Toast } from 'primereact/toast';
 import { classNames } from 'primereact/utils';
+import { useTranslation } from 'react-i18next';
 
 const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 	const [prevValue, setPrevValue] = useState('');
   	const [loading, setLoading] = useState(false);
+
+   const { t } = useTranslation();
 
 	const currentDate = new Date()
 	const currentYear = String(currentDate.getFullYear())
 	const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0')
 	const currentDay = String(currentDate.getDate()).padStart(2, '0')
 	const formatedDate = `${currentYear}-${currentMonth}-${currentDay}`
-
-	console.log(formatedDate)
 
     useEffect(() => {
         if(loading == true) {
@@ -32,13 +31,13 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
             let errors = {};
 
             !data.value ? errors.value = "Поле обов'язкове." : null;
-				data.value === prevValue ? errors.value = "Дані відображені за цей день." : null;
+				 data.value === prevValue ? errors.value = "Дані відображені за цей день." : null;
 				+data.value.slice(0, 4) < 2022 ? errors.value = "Дані не знайдені." : null;
 				+data.value.slice(5, 7) > 12  ? errors.value = "Дані не корректні." : null;
 				+data.value.slice(5, 7) == 2 ? +data.value.slice(8, 10) > 28 ? errors.value = "Дані не корректні." : null : null;
 				+data.value.slice(8, 10) > 31 ? errors.value = "Дані не корректні." : null;
-				data.value > formatedDate ? errors.value = "Дані не знайдені." : null;
-				data.value === '2022-02-24' || data.value === '2022-02-26' ? errors.value = "За цей день дані втрачені..." : null;
+				 data.value > formatedDate ? errors.value = "Дані не знайдені." : null;
+				 data.value === '2022-02-24' || data.value === '2022-02-26' ? errors.value = "За цей день дані втрачені..." : null;
 				+data.value.slice(5, 7) == 4 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
 				+data.value.slice(5, 7) == 6 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
 				+data.value.slice(5, 7) == 9 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
@@ -62,18 +61,12 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 		setLoading(true);
 	}
 
-	useEffect(() => {
-		if(prevValue) {
-			console.log(prevValue);
-		}
-	}, [prevValue])
-
-
   if(isLoaded) {
 		return (
 			<footer className='p-0 m-0 bg-[#414A4E] text-[#fff] flex justify-between py-[20px] 2xl:px-[50px] xl:px-[40px] lg:px-[30px] md:px-[20px] px-[20px] sm:h-auto items-center sm:flex-row flex-col md:pb-[20px] pb-[50px]'>
 				<div className='flex justify-center items-center xl:w-[60%] md:w-[70%] w-[100%] lg:flex-row flex-col'>
-					<p className='mr-[20px] 2xl:text-[20px] xl:text-[20px] lg:text-[20px] md:text-[20px] sm:text-[20px] text-[20px] lg:mb-0 mb-[20px] font-bold'>Дізнайся статистику за інший день</p>
+					<p className='mr-[20px] 2xl:text-[20px] xl:text-[20px] lg:text-[20px] md:text-[20px] sm:text-[20px] text-[20px] lg:mb-0 mb-[20px] font-bold'>
+					{t("search_title")}</p>
 						<form onSubmit={formik.handleSubmit} className="gap-2 flex flex-col text-[black]">
 							<InputMask
 								id="value"
@@ -90,7 +83,7 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 						</form>
 				</div>
 				<div className='xl:w-[40%] md:w-[30%] sm:w-[30%] w-[100%]  flex justify-center items-center mt-[20px] sm:mt-0'>
-					<p>Slava Ukraine!</p>
+					<p>{t("slava_ukraine")}</p>
 				</div>
 			</footer>
 		)

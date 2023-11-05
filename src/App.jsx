@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import WarInfo from "./components/warInfo/WarInfo";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer';
+import Language from './components/LanguageComp/Language';
 
 const App = () => {
   const [userValue, setUserValue] = useState();
@@ -33,9 +34,10 @@ const App = () => {
 
   return (
       <div className="app">
-            <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded}/>
-            <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
-            <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded}/>
+        <Language isLoaded={isLoaded}/>
+        <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded}/>
+        <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
+        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded}/>
       </div>
   )
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import useWarStatusService from "../../WarStatusService";
+import useWarStatusService from "../../Service/WarStatusService";
 import statsData from "../../constants/index";
 import PulseLoader from "react-spinners/PulseLoader";
+import { useTranslation } from 'react-i18next';
 
 const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
   const [data, setData] = useState({});
@@ -10,6 +11,7 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
   const [valueDate, setValueDate] = useState('');
 
   const { getWarStatistics } = useWarStatusService();
+  const { t } = useTranslation();
 
 	useEffect(() => {
 		setValueDate(userValue);
@@ -58,7 +60,9 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 							<img className='2xl:w-[100px] xl:w-[90px] lg:w-[85px] w-[100px] 2xl:mr-[30px] xl:mr-[20px] md:mr-[20px] mr-[30px]' src={statData.img} alt="" />
 						<div>
 							<p className="font-bold 2xl:text-[26px] xl:text-[24px] lg:text-[22px] md:text-[20px] text-[18px] m-0 text-[#414a4e]">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>
-						<p className="font-normal 2xl:text-[22px] xl:text-[20px] text-[18px] m-0 text-[#71797E]">{statData.name}</p>
+						<p className="font-normal 2xl:text-[22px] xl:text-[20px] text-[18px] m-0 text-[#71797E]">
+							{t(`${statData.name}`)}
+							</p>
 						</div>
 					</div>
 					)
