@@ -19,9 +19,8 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 
     useEffect(() => {
 		if(loading == false) {
-			handleWarInfoLoading(loading);
-		}
-    }, [loading])
+			handleWarInfoLoading(loading)
+		}}, [loading])
 
 		useEffect(() => {
 			if(valueDate !== undefined) {
@@ -30,7 +29,14 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 					getWarStatistics(valueDate)
 						.then(res => {
 							setLoading(false)
-							setData(res.stats);
+							window.localStorage.setItem('data', JSON.stringify(res.stats));
+							if(window.localStorage.getItem('data') !== res.stats) {
+								const ressult = window.localStorage.getItem('data');
+								setData(JSON.parse(ressult));
+								window.localStorage.setItem('data', JSON.stringify(res.stats));
+							} else {
+								setData(res.stats);
+							}
 							setDataForToday(res.increase);
 						})
 						.catch((e) => {
@@ -45,7 +51,13 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 		getWarStatistics()
 			.then(res => {
 			 	setLoading(false)
-				setData(res.stats);
+				if(window.localStorage.getItem('data')) {
+					const ressult = window.localStorage.getItem('data');
+					setData(JSON.parse(ressult));
+				} else {
+ 					window.localStorage.setItem('data', JSON.stringify(res.stats));
+					setData(res.stats);
+				}
 				setDataForToday(res.increase);
 			});
   }, [])	

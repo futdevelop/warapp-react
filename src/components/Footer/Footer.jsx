@@ -8,13 +8,16 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 	const [prevValue, setPrevValue] = useState('');
   	const [loading, setLoading] = useState(false);
 
-   const { t } = useTranslation();
+   const { t, i18n } = useTranslation();
+	const language = i18n.language;
 
 	const currentDate = new Date()
 	const currentYear = String(currentDate.getFullYear())
 	const currentMonth = String(currentDate.getMonth() + 1).padStart(2, '0')
 	const currentDay = String(currentDate.getDate()).padStart(2, '0')
 	const formatedDate = `${currentYear}-${currentMonth}-${currentDay}`
+
+	
 
     useEffect(() => {
         if(loading == true) {
@@ -30,18 +33,17 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
         validate: (data) => {
             let errors = {};
 
-            !data.value ? errors.value = "Поле обов'язкове." : null;
-				 data.value === prevValue ? errors.value = "Дані відображені за цей день." : null;
-				+data.value.slice(0, 4) < 2022 ? errors.value = "Дані не знайдені." : null;
-				+data.value.slice(5, 7) > 12  ? errors.value = "Дані не корректні." : null;
-				+data.value.slice(5, 7) == 2 ? +data.value.slice(8, 10) > 28 ? errors.value = "Дані не корректні." : null : null;
-				+data.value.slice(8, 10) > 31 ? errors.value = "Дані не корректні." : null;
-				 data.value > formatedDate ? errors.value = "Дані не знайдені." : null;
-				 data.value === '2022-02-24' || data.value === '2022-02-26' ? errors.value = "За цей день дані втрачені..." : null;
-				+data.value.slice(5, 7) == 4 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
-				+data.value.slice(5, 7) == 6 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
-				+data.value.slice(5, 7) == 9 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
-				+data.value.slice(5, 7) == 11 && +data.value.slice(8, 10) > 30 ? errors.value = "Дані не корректні." : null;
+				const year = +data.value.slice(0, 4);
+				const month = +data.value.slice(5, 7);
+				const day = +data.value.slice(8, 10);
+
+            !data.value ? errors.value = t("required_field") : null;
+				data.value && data.value === prevValue ? errors.value = t("already_showed") : null;
+				 data.value === '2022-02-24' || data.value === '2022-02-26' ? errors.value = t("lost_data") : null;
+				month == 4 && day > 30 || month == 6 && day > 30 || month == 9 && day > 30 ||
+				month == 11 && day > 30 ||day > 31 && errors.value || month == 2 && day > 28 ||
+				month > 12  ? errors.value = t("incorrect_data") : null;
+				year < 2022 || data.value > formatedDate ? errors.value = t("not_exist_data") : null;
 
             return errors;
         },
@@ -54,6 +56,11 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
     const isFormFieldInvalid = (name) => !!(formik.touched[name] && formik.errors[name]);
 
     const getFormErrorMessage = (name) => isFormFieldInvalid(name) && <p className="p-error text-[#d93434]">{formik.errors[name]}</p>;
+
+	useEffect(() => {
+		getFormErrorMessage('value')
+		console.log(formik.errors['value'])
+	}, [language])
 
 	const handleSubmit = data => {
 		setPrevValue(data.value);

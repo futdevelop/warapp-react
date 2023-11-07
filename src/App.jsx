@@ -34,10 +34,10 @@ const App = () => {
 
   return (
       <div className="app">
-        <Language isLoaded={isLoaded}/>
+        <Language isLoaded={isLoaded} />
         <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded}/>
         <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
-        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded}/>
+        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} />
       </div>
   )
 }
