@@ -11,6 +11,7 @@ const App = () => {
   const [statusLoadingWarInfo, setStatusLoadingWarInfo] = useState(true);
   const [statusLoadingHeader, setStatusLoadingHeader] = useState(true);
   const [statusLoadingFooter, setStatusLoadingFooter] = useState(false);
+  const [dataForToday, setDataForToday] = useState();
 
   const updateData = value => setUserValue(value);
 
@@ -32,12 +33,16 @@ const App = () => {
       }
   }, [statusLoadingWarInfo, statusLoadingHeader, statusLoadingFooter]);
 
+  const setDataForTodayApp = (dataForTodayValue) => {
+    setDataForToday(dataForTodayValue);
+  }
+
   return (
       <div className="app">
         <Language isLoaded={isLoaded} />
         <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded}/>
-        <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
-        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} />
+        <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} setDataForTodayApp={setDataForTodayApp} />
+        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} dataForToday={dataForToday} />
       </div>
   )
 }

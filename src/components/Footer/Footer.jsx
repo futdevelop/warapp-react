@@ -18,7 +18,10 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 	const currentDay = String(currentDate.getDate()).padStart(2, '0')
 	const formatedDate = `${currentYear}-${currentMonth}-${currentDay}`
 
-	
+	const setDataForToday = formatedDate => {
+		updateData(formatedDate);
+		setLoading(true);
+	}
 
     useEffect(() => {
         if(loading == true) {
@@ -83,10 +86,15 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 								}}
 								mask="9999-99-99"
 								placeholder="yyyy-mm-dd"
-								className={`${classNames} h-[30px] pl-[10px] w-[200px] rounded text-[24px] ({ 'p-invalid': ${isFormFieldInvalid('value')} }) `}
+								className={`${classNames} h-[30px] w-[200px] rounded text-[24px] ({ 'p-invalid': ${isFormFieldInvalid('value')} }) `}
 							/>
-							{isFormFieldInvalid('value') && <p className="p-error text-[#d93434]">{errors ? errors['value'] : null}</p>}
+							{isFormFieldInvalid('value') && <p className="p-error text-[#d93434]">{errors && errors['value']}</p>}
 						</form>
+						<button 
+							className='h-[30px] w-[180px] rounded text-[20px] flex justify-center text-center border-[1px] ml-[10px]'
+							onClick={() => setDataForToday(formatedDate)}
+							type='button'>
+								Сьогодні</button>
 				</div>
 				<div className='xl:w-[40%] md:w-[30%] sm:w-[30%] w-[100%]  flex justify-center items-center mt-[20px] sm:mt-0'>
 					<p>{t("slava_ukraine")}</p>
