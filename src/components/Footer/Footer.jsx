@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 	const [prevValue, setPrevValue] = useState('');
   	const [loading, setLoading] = useState(false);
+	const [errors, setErrors] = useState(); 
 
    const { t, i18n } = useTranslation();
 	const language = i18n.language;
@@ -45,7 +46,8 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 				month > 12  ? errors.value = t("incorrect_data") : null;
 				year < 2022 || data.value > formatedDate ? errors.value = t("not_exist_data") : null;
 
-            return errors;
+            setErrors(errors);
+				return errors;
         },
         onSubmit: (data) => {
 				handleSubmit(data)
@@ -53,20 +55,17 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
         }
     });
 
-    const isFormFieldInvalid = (name) => !!(formik.touched[name] && formik.errors[name]);
-
-    const getFormErrorMessage = (name) => isFormFieldInvalid(name) && <p className="p-error text-[#d93434]">{formik.errors[name]}</p>;
-
-	useEffect(() => {
-		getFormErrorMessage('value')
-		console.log(formik.errors['value'])
-	}, [language])
+    const isFormFieldInvalid = (name) => (formik.touched[name] && formik.errors[name]);
 
 	const handleSubmit = data => {
 		setPrevValue(data.value);
 		data.value ? updateData(data.value) : null;
 		setLoading(true);
 	}
+
+	useEffect(() => {
+		setErrors({})
+	}, [language])
 
   if(isLoaded) {
 		return (
@@ -86,7 +85,7 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 								placeholder="yyyy-mm-dd"
 								className={`${classNames} h-[30px] pl-[10px] w-[200px] rounded text-[24px] ({ 'p-invalid': ${isFormFieldInvalid('value')} }) `}
 							/>
-							{getFormErrorMessage('value')}
+							{isFormFieldInvalid('value') && <p className="p-error text-[#d93434]">{errors ? errors['value'] : null}</p>}
 						</form>
 				</div>
 				<div className='xl:w-[40%] md:w-[30%] sm:w-[30%] w-[100%]  flex justify-center items-center mt-[20px] sm:mt-0'>
