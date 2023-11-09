@@ -23,5 +23,6 @@
 	"already_showed": "The data has already shown.",
 	"not_exist_data": "Data not found.",
 	"incorrect_data": "Incorrect data.",
-	"lost_data": "Lost data for that day..."
+	"lost_data": "Lost data for that day...",
+	"btn_today": "Today"
 }

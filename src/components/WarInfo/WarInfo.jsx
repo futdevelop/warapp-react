@@ -4,7 +4,7 @@ import statsData from "../../constants/index";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useTranslation } from 'react-i18next';
 
-const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading, setDataForTodayApp }) => {
+const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
   const [data, setData] = useState({});
   const [dataForToday, setDataForToday] = useState({});
   const [loading, setLoading] = useState(true);
@@ -13,10 +13,6 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading, setDataForTodayApp
   const { getWarStatistics } = useWarStatusService();
   const { t } = useTranslation();
 
-
-	useEffect(() => {
-		dataForToday && setDataForTodayApp(dataForToday);
-	}, [dataForToday])
 
 	useEffect(() => {
 		setValueDate(userValue);
@@ -29,7 +25,7 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading, setDataForTodayApp
 
 		useEffect(() => {
 			if(valueDate !== undefined) {
-				if(valueDate[4] == '-' && valueDate[7] == '-') {
+				// if(valueDate[4] == '-' && valueDate[7] == '-') {
 				setLoading(true);
 					getWarStatistics(valueDate)
 						.then(res => {
@@ -48,7 +44,7 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading, setDataForTodayApp
 							console.log(e)
 							setLoading(false)
 						})
-				}
+				// }
 			}
 		}, [valueDate])
 

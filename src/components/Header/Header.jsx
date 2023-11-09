@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useWarStatusService from "../../Service/WarStatusService";
 import { useTranslation } from 'react-i18next';
 
-const Header = ({ userValue, isLoaded, handleHeaderLoading }) => {
+const Header = ({ userValue, isLoaded, handleHeaderLoading, setDateApp }) => {
   const [dayOfWar, setDayOfWar] = useState(0);
   const [date, setDate] = useState('');
   const [valueDate, setValueDate] = useState('');
@@ -20,6 +20,10 @@ const Header = ({ userValue, isLoaded, handleHeaderLoading }) => {
           handleHeaderLoading(loading);
         }
     }, [loading])
+
+    useEffect(() => {
+      date && setDateApp(date);
+    }, [date])
 
     useEffect(() => {
       if(valueDate !== undefined && valueDate !== '') {

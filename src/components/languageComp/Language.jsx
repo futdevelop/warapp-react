@@ -16,6 +16,7 @@ const Language = ({ isLoaded }) => {
     const lan = window.localStorage.getItem('language')
     setCurrentLan(lan);
     i18n.changeLanguage(lan);
+    !lan && window.localStorage.setItem('language', 'ua')
   }, [])
 
   if(isLoaded) {

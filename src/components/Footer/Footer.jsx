@@ -4,7 +4,7 @@ import { InputMask } from "primereact/inputmask";
 import { classNames } from 'primereact/utils';
 import { useTranslation } from 'react-i18next';
 
-const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
+const Footer = ({ updateData, isLoaded, handleFooterLoading, date }) => {
 	const [prevValue, setPrevValue] = useState('');
   	const [loading, setLoading] = useState(false);
 	const [errors, setErrors] = useState(); 
@@ -19,8 +19,10 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 	const formatedDate = `${currentYear}-${currentMonth}-${currentDay}`
 
 	const setDataForToday = formatedDate => {
-		updateData(formatedDate);
-		setLoading(true);
+		if(formatedDate !== date) {
+			updateData(formatedDate);
+			setLoading(true);
+		}
 	}
 
     useEffect(() => {
@@ -91,10 +93,9 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading }) => {
 							{isFormFieldInvalid('value') && <p className="p-error text-[#d93434]">{errors && errors['value']}</p>}
 						</form>
 						<button 
-							className='h-[30px] w-[180px] rounded text-[20px] flex justify-center text-center border-[1px] ml-[10px]'
+							className='h-[30px] w-[180px] rounded text-[20px] flex justify-center text-center border-[1px] lg:mt-0 mt-[10px] lg:ml-[10px]'
 							onClick={() => setDataForToday(formatedDate)}
-							type='button'>
-								Сьогодні</button>
+							type='button'>{t("btn_today")}</button>
 				</div>
 				<div className='xl:w-[40%] md:w-[30%] sm:w-[30%] w-[100%]  flex justify-center items-center mt-[20px] sm:mt-0'>
 					<p>{t("slava_ukraine")}</p>

@@ -6,12 +6,12 @@ import Footer from './components/Footer/Footer';
 import Language from './components/LanguageComp/Language';
 
 const App = () => {
-  const [userValue, setUserValue] = useState();
+  const [userValue, setUserValue] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
   const [statusLoadingWarInfo, setStatusLoadingWarInfo] = useState(true);
   const [statusLoadingHeader, setStatusLoadingHeader] = useState(true);
   const [statusLoadingFooter, setStatusLoadingFooter] = useState(false);
-  const [dataForToday, setDataForToday] = useState();
+  const [date, setDate] = useState();
 
   const updateData = value => setUserValue(value);
 
@@ -33,16 +33,16 @@ const App = () => {
       }
   }, [statusLoadingWarInfo, statusLoadingHeader, statusLoadingFooter]);
 
-  const setDataForTodayApp = (dataForTodayValue) => {
-    setDataForToday(dataForTodayValue);
+  const setDateApp = (date) => {
+    setDate(date);
   }
 
   return (
       <div className="app">
         <Language isLoaded={isLoaded} />
-        <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded}/>
-        <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} setDataForTodayApp={setDataForTodayApp} />
-        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} dataForToday={dataForToday} />
+        <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded} setDateApp={setDateApp}/>
+        <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
+        <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} date={date} />
       </div>
   )
 }
