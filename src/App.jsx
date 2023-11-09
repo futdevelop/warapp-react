@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 import WarInfo from "./components/warInfo/WarInfo";
 import Header from "./components/Header/Header";
 import Footer from './components/Footer/Footer';
 import Language from './components/LanguageComp/Language';
+import Modal from './components/modal/Modal';
 
 const App = () => {
   const [userValue, setUserValue] = useState('');
@@ -33,9 +34,7 @@ const App = () => {
       }
   }, [statusLoadingWarInfo, statusLoadingHeader, statusLoadingFooter]);
 
-  const setDateApp = (date) => {
-    setDate(date);
-  }
+  const setDateApp = date => setDate(date);
 
   return (
       <div className="app">
@@ -43,6 +42,7 @@ const App = () => {
         <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded} setDateApp={setDateApp}/>
         <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
         <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} date={date} />
+        <Modal />
       </div>
   )
 }
