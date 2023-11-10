@@ -88,7 +88,7 @@ const Footer = ({ updateData, isLoaded, handleFooterLoading, date }) => {
 								}}
 								mask="9999-99-99"
 								placeholder="yyyy-mm-dd"
-								className={`${classNames} h-[30px] w-[200px] rounded text-[24px] ({ 'p-invalid': ${isFormFieldInvalid('value')} }) `}
+								className={`${classNames} pl-[10px] h-[30px] w-[200px] rounded text-[24px] ({ 'p-invalid': ${isFormFieldInvalid('value')} }) `}
 							/>
 							{isFormFieldInvalid('value') && <p className="p-error text-[#d93434]">{errors && errors['value']}</p>}
 						</form>

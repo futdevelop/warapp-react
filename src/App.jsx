@@ -42,7 +42,7 @@ const App = () => {
         <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded} setDateApp={setDateApp}/>
         <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
         <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} date={date} />
-        <Modal />
+        <Modal isLoaded={isLoaded} />
       </div>
   )
 }

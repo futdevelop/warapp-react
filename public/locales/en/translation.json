@@ -24,5 +24,7 @@
 	"not_exist_data": "Data not found.",
 	"incorrect_data": "Incorrect data.",
 	"lost_data": "Lost data for that day...",
-	"btn_today": "Today"
+	"btn_today": "Today",
+	"btn_support": "Click",
+	"title_support": "Desire support author with your review?"
 }
