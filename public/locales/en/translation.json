@@ -26,5 +26,9 @@
 	"lost_data": "Lost data for that day...",
 	"btn_today": "Today",
 	"btn_support": "Click",
-	"title_support": "Desire support author with your review?"
+	"title_support": "Desire support author with your review?",
+	"modal_title1": "Send feedback to the author by mail.",
+	"modal_title2": "He will be pleased :)",
+	"modal_success": "Thank you for your review.",
+	"modal_error": "Something went wrong"
 }

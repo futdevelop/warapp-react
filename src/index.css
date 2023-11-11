@@ -11,8 +11,7 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	background-image: url('./assets/bg.png');
 	min-width: 100%;
-	/* overflow: hidden; */
-}
+}	
 
 /* sm	640px
 md	768px

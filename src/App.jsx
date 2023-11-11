@@ -13,6 +13,7 @@ const App = () => {
   const [statusLoadingHeader, setStatusLoadingHeader] = useState(true);
   const [statusLoadingFooter, setStatusLoadingFooter] = useState(false);
   const [date, setDate] = useState();
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const updateData = value => setUserValue(value);
 
@@ -36,13 +37,20 @@ const App = () => {
 
   const setDateApp = date => setDate(date);
 
+  const toggleModal = value => setIsOpenModal(value)
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body ? body.style.overflow = isOpenModal ? 'hidden' : 'auto' : null;
+  }, [isOpenModal])
+
   return (
-      <div className="app">
+      <div className='app'>
         <Language isLoaded={isLoaded} />
         <Header userValue={userValue} handleHeaderLoading={handleHeaderLoading} isLoaded={isLoaded} setDateApp={setDateApp}/>
         <WarInfo userValue={userValue} handleWarInfoLoading={handleWarInfoLoading} isLoaded={isLoaded} />
         <Footer updateData={updateData} handleFooterLoading={handleFooterLoading} isLoaded={isLoaded} date={date} />
-        <Modal isLoaded={isLoaded} />
+        <Modal isLoaded={isLoaded} toggleModal={toggleModal} />
       </div>
   )
 }
