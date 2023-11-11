@@ -1,62 +1,80 @@
+import {
+	helicopter,
+	pigs,
+	mlrs,
+	warfare_systems,
+	afv,
+	atgm,
+	rockets,
+	planes,
+	specials,
+	warships,
+	fuel_vehicles,
+	uav,
+	tanks,
+	submarines,
+	artillery,
+   } from '../assets/icons';
+
 const statsData = [
       {
-        img: "/src/assets/icons/pig.png",
+        img: pigs,
         name: "personnel_units"
       },
       {
-        img: "/src/assets/icons/tanks.png",
+        img: tanks,
         name: "tanks"
       },
       {
-        img: "/src/assets/icons/armoured_fighting_vehicles.png",
+        img: afv,
         name: "armoured_fighting_vehicles"
       },
       {
-        img: "/src/assets/icons/artillery_systems.png",
+        img: artillery,
         name: "artillery_systems"
       },
       {
-        img: "/src/assets/icons/mlrs.png",
+        img: mlrs,
         name: "mlrs"
       },
       {
-        img: "/src/assets/icons/a_warfare_systems.png",
+        img: warfare_systems,
         name: 'aa_warfare_systems'
       },
       {
-        img: "/src/assets/icons/planes.png",
+        img: planes,
         name: 'planes'
       },
       {
-        img: "/src/assets/icons/helicopters.png",
+        img: helicopter,
         name: 'helicopters'
       },
       {
-        img: "/src/assets/icons/vehicles_fuel_tanks.png",
+        img: fuel_vehicles,
         name: 'vehicles_fuel_tanks'
       },
             {
-        img: "/src/assets/icons/warships_cutters.png",
+        img: warships,
         name: 'warships_cutters'
       },
       {
-        img: "/src/assets/icons/cruise_missiles.png",
+        img: rockets,
         name: 'cruise_missiles'
       },
       {
-        img: "/src/assets/icons/uav_systems.png",
+        img: uav,
         name: 'uav_systems'
       },
       {
-        img: "/src/assets/icons/special_military_equip.png",
+        img: specials,
         name: 'special_military_equip'
       },
       {
-        img: "/src/assets/icons/atgm_srbm_systems.png",
+        img: atgm,
         name: 'atgm_srbm_systems'
       },
       {
-        img: "/src/assets/icons/submarines.png",
+        img: submarines,
         name: 'submarines'
       },
     ]

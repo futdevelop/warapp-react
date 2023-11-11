@@ -25,7 +25,6 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 
 		useEffect(() => {
 			if(valueDate !== undefined) {
-				// if(valueDate[4] == '-' && valueDate[7] == '-') {
 				setLoading(true);
 					getWarStatistics(valueDate)
 						.then(res => {
@@ -41,10 +40,9 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 							setDataForToday(res.increase);
 						})
 						.catch((e) => {
-							console.log(e)
+							console.log(e);
 							setLoading(false)
 						})
-				// }
 			}
 		}, [valueDate])
 
@@ -70,7 +68,7 @@ const WarInfo = ({ userValue, isLoaded, handleWarInfoLoading }) => {
 					const keys = Object.keys(data);
 					return (
 						<div key={index} className="war-info-block sm:pl-[10px] pl-[10%] select-none bg-[inherit] border-b-[1px] border-r-[1px] border-black flex items-center sm:justify-start justify-start h-[130px]">
-							<img className='2xl:w-[100px] xl:w-[90px] lg:w-[85px] w-[100px] 2xl:mr-[30px] xl:mr-[20px] md:mr-[20px] mr-[30px]' src={statData.img} alt="" />
+							<img className='2xl:w-[100px] xl:w-[90px] lg:w-[85px] w-[100px] 2xl:mr-[30px] xl:mr-[20px] md:mr-[20px] mr-[30px]' src={statData.img} alt="image" />
 						<div>
 							<p className="font-bold 2xl:text-[26px] xl:text-[24px] lg:text-[22px] md:text-[20px] text-[18px] m-0 text-[#414a4e]">{data[keys[index]]} {dataForToday[keys[index]] !== 0 ? `(+${dataForToday[keys[index]]})` : null}</p>
 						<p className="font-normal 2xl:text-[22px] xl:text-[20px] text-[18px] m-0 text-[#71797E]">
