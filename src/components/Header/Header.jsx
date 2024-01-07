@@ -1,64 +1,65 @@
 import React, { useEffect, useState } from "react";
-import useWarStatusService from "../../Service/WarStatusService";
+import warStatusService from "../../Service/WarStatusService";
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWarInfo } from "./headerSlice";
+import { createSelector } from 'reselect'
 
-const Header = ({ userValue, isLoaded, handleHeaderLoading, setDateApp }) => {
-  const [dayOfWar, setDayOfWar] = useState(0);
-  const [date, setDate] = useState('');
-  const [valueDate, setValueDate] = useState('');
-  const [loading, setLoading] = useState(true);
+import './header.scss';
 
-    const { t } = useTranslation();
-    const { getWarInfo, getWarStatistics } = useWarStatusService();
+const Header = ({ }) => {
+  const { date, day, dataLoaded } = useSelector(state => state.header);
 
-    useEffect(() => {
-      setValueDate(userValue);
-    }, [userValue])
+  const [currentLan, setCurrentLan] = useState('ua');
+  const { i18n, t } = useTranslation();
 
-    useEffect(() => {
-        if(loading == false) {
-          handleHeaderLoading(loading);
-        }
-    }, [loading])
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      date && setDateApp(date);
-    }, [date])
+  const changeLanguage = language => {
+    i18n.changeLanguage(language);
+    setCurrentLan(language);
+    window.localStorage.setItem('language', language);
+  };
 
-    useEffect(() => {
-      if(valueDate !== undefined && valueDate !== '') {
-        getWarStatistics(valueDate)
-          .then(res =>  {
-            setDayOfWar(res.day);
-            setDate(valueDate);
-            setLoading(false)
-          })
-      }
-    }, [valueDate])
+  useEffect(() => {
+    const lan = window.localStorage.getItem('language')
+    setCurrentLan(lan);
+    i18n.changeLanguage(lan);
+    !lan && window.localStorage.setItem('language', 'ua')
+  }, [])
 
     useEffect(() => {
-      getWarInfo()
-        .then(res =>  {
-          setDayOfWar(res.current_day);
-          setDate(res.current_date);
-          setLoading(false)
-        })
+      !dataLoaded && dispatch(fetchWarInfo());
     }, [])
 
-    if(isLoaded) {
+
+    let enBtnClassName = currentLan == 'en' ? 'header__language-btn_active' : 'header__language-btn';
+    let uaBtnClassName = currentLan == 'ua' ? 'header__language-btn_active' : 'header__language-btn';
+
 			return (
-				<header className="bg-[#414A4E] text-[#fff] max-w-[100%] flex md:flex-row flex-col justify-between items-center p-[20px] 2xl:px-[70px] xl:px-[50px] lg:px-[40px] md:px-[30px] px-[20px]">
-            <div className="font-bold xl:ml-[50px] lg:ml-[30px] md:ml-[20px] ml-[10px]">
-              <p className="2xl:text-[18px] sm:text-center text-start md:text-start xl:text-[18px] lg:text-[16px] text-[12px] mb-[5px] md:mb-0">{t("inform")}</p>
-              <h1 className="2xl:text-[32px] xl:text-[24px] lg:text-[20px] md:text-[20px] sm:text-[24px] text-[20px] flex-wrap">{t("losses")}</h1>
+				<header className="header">
+          <div className='header__language'>
+              <button 
+                className={enBtnClassName}
+                onClick={() => changeLanguage("en")}>EN</button>
+              <button 
+                className={uaBtnClassName}
+                onClick={() => changeLanguage("ua")}>UA</button>
+          </div>
+          <div className="header__content">
+            <div className="header__content-titles titles">
+              <p className="titles__information">{t("inform")}</p>
+              <h1 className="titles__heading">{t("losses")}</h1>
             </div>
-						<div className="flex md:flex-col md:mt-0 mt-[20px] flex-row items-end 2xl:text-[22px] xl:text-[20px] lg-[18px] md:text-[16px] font-bold lg:w-[30%] ">
-							<p className="md:mb-[10px] mb-0 md:mr-0 mr-[15px]">{date}</p>
-							<p className="m-[0px]"><span className="text-[red]">{dayOfWar}</span>{t("dayOfWar")}</p>
+						<div className="header__content-dates dates">
+							<p className="dates__date">{date}</p>
+							<p className="dates__day">
+                <span className="text-[red]">{day}</span>{t("dayOfWar")}
+              </p>
 					</div>
+          </div>
 				</header>
       )
-    }
 }
 
 export default Header;

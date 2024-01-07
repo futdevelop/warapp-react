@@ -1,0 +1,258 @@
+$layout-breakpoint-sm: 640px;
+$layout-breakpoint-md: 768px;
+$layout-breakpoint-lg: 1024px;
+$layout-breakpoint-xl: 1280px;
+$layout-breakpoint-2xl: 1536px;
+
+.footer {
+	padding: 0;
+	margin: 0;
+	background-color: #414A4E;
+	color: #fff;
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		padding: 40px 10px 50px 10px;
+		&-formblock {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			flex-direction: column;
+		}
+		&-symbol {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20px;
+		}
+	}
+	&__bottom {
+		display: flex;
+		padding: 15px 20px 15px 20px;
+		background-color: #363d40;
+		color: #fff;
+		flex-direction: column;
+		justify-content: space-between;
+		&-reviews {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: column;
+		}
+		&-contact {
+			display: flex;
+			margin-top: 20px;
+			margin-left: 20px;
+			justify-content: space-between;
+		}
+	}
+}
+
+.formblock {
+	&__text {
+		margin-right: 20px;
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&__input {
+		color: black;
+	}
+	&__form {
+		gap: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		color: black;
+	}
+	&__btn {
+		height: 30px;
+		width: 180px;
+		border-radius: 0.25rem;
+		font-size: 20px;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		border: 1px white solid;
+		margin-top: 10px;
+	}
+}
+
+.form {
+	&__input {
+		padding-left: 10px;
+		height: 30px;
+		width: 200px;
+		border-radius: 0.25rem;
+		font-size: 24px;
+	}
+	&__validation {
+		color: #d93434;
+	}
+}
+
+.reviews {
+	&__text {
+		font-size: 14px;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+	&__btn {
+		height: 30px;
+		width: 180px;
+		border-radius: 0.5rem;
+		border: 1px white solid;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+	}
+}
+.contact {
+	&__github {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 10px;
+		&-text {
+			font-size: 14px;
+		}
+		&-icon {
+			margin-right: 5px;
+		}
+	}
+	&__telegram {
+		display: flex;
+		align-items: center;
+		&-text {
+			font-size: 14px;
+		}
+		&-icon {
+			margin-right: 5px;
+		}
+	}
+}
+
+@media (min-width: $layout-breakpoint-sm) {
+	.footer {
+		&__top {
+			height: auto;
+			flex-direction: row;
+			&-symbol {
+				width: 30%;
+				margin-top: 0;
+			}
+		}
+		&__bottom {
+			&-reviews {
+				flex-direction: row;
+			}
+		}
+	}
+	.formblock {
+		&__text {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (min-width: $layout-breakpoint-md) {
+	.footer {
+		&__top {
+			padding-bottom: 20px;
+			padding-right: 10px;
+			padding-left: 10px;
+			&-symbol {
+				width: 30%;
+			}
+		}
+		&__bottom {
+			flex-direction: row;
+		}
+	}
+	.formblock {
+		width: 70%;
+		&__text {
+			font-size: 20px;
+		}
+	}
+	.reviews {
+		justify-content: start;
+		&__text {
+			font-size: 16px;
+			margin-bottom: 0;
+		}
+	}
+	.contact {
+		margin-top: 0;
+		justify-content: start;
+		&__github {
+			&-text {
+				font-size: 14px;
+			}
+		}
+		&__telegram {
+			&-text {
+				font-size: 14px;
+			}
+		}
+	} 
+	
+}
+
+@media (min-width: $layout-breakpoint-lg) {
+	.formblock {
+		flex-direction: row;
+		&__text {
+			font-size: 20px;
+			margin-bottom: 0;
+		}
+		&__btn {
+			margin-top: 0;
+			margin-left: 10px;
+		}
+	}
+	.reviews {
+		&__btn {
+			margin-left: 10px;
+		}
+	}
+}
+
+@media (min-width: $layout-breakpoint-xl) {
+	.footer {
+		&__top {
+			&-symbol {
+				width: 40%;
+			}
+		}
+	}
+	.formblock {
+		width: 60%;
+		&-text {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (min-width: $layout-breakpoint-2xl) {
+	.formblock {
+		&__text {
+			font-size: 23px;
+		}
+	}
+	.contact {
+		&__github {
+			&-text {
+				font-size: 16px;
+			}
+		}
+		&__telegram {
+			&-text {
+				font-size: 16px;
+			}
+		}
+	}
+}

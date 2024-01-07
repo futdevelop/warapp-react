@@ -1,0 +1,164 @@
+$layout-breakpoint-sm: 640px;
+$layout-breakpoint-md: 768px;
+$layout-breakpoint-lg: 1024px;
+$layout-breakpoint-xl: 1280px;
+$layout-breakpoint-2xl: 1536px;
+
+.header {
+	&__language {
+		gap: 1rem;
+		padding-left: 40px;
+		background-color: #363d40;
+		color: white;
+		&-btn {
+			text-decoration: underline;
+			margin-right: 5px;
+		}
+		&-btn_active {
+			color: red;
+			margin-right: 5px;
+		}
+	}
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+		background-color: #414A4E;
+		color: #fff;
+		max-width: 100%;
+		padding: 20px;
+		&-titles {
+			font-weight: bold;
+			margin-left: 10px;
+		}
+		&-dates {
+			display: flex;
+			flex-direction: row;
+			margin-top: 20px;
+			align-items: flex-end;
+			font-weight: bold;
+		}
+	}
+}
+
+.titles {
+	&__information {
+		text-align: start;
+		font-size: 12px;
+		margin-bottom: 5px;
+	}
+	&__heading {
+		flex-wrap: wrap;
+		font-size: 20px;
+	}
+}
+
+.dates {
+	&__date {
+		margin-bottom: 0;
+		margin-right: 15px;
+	}
+	&__day {
+		margin: 0;
+	}
+}
+
+@media (min-width: $layout-breakpoint-sm) {
+		.titles {
+			&__information {
+				text-align: center;
+			}
+
+			&__heading {
+				font-size: 24px;
+			}
+		}
+}
+
+@media (min-width: $layout-breakpoint-md) {
+	.header {
+		padding: auto 30px auto 30px;
+		&__content {
+			flex-direction: row;
+		}
+	}
+	.titles {
+		margin-left: 20px;
+		&__information {
+			text-align: start;
+			margin-bottom: 0;
+		}
+		&__heading {
+			font-size: 20px;
+		}
+	}
+	.dates {
+		flex-direction: column;
+		margin-top: 0;
+		font-size: 16px;
+
+		&__date {
+			margin-bottom: 10px;
+			margin-right: 0;
+		}
+	}
+}
+
+@media (min-width: $layout-breakpoint-lg) {
+	.header {
+		padding: auto 40px auto 40px;
+	}
+
+	.titles {
+		margin-left: 30px;
+
+		&__information {
+			font-size: 16px;
+		}
+
+		&__heading {
+			font-size: 20px;
+		}
+	}
+
+	.dates {
+		width: 30%;
+		font-size: 18px;
+	}
+}
+
+@media (min-width: $layout-breakpoint-xl) {
+	.header {
+		padding: auto 50px auto 50px;
+	}
+	.titles {
+		margin-left: 50px;
+		&-information {
+			font-size: 18px;
+		}
+		&__heading {
+			font-size: 24px;
+		}
+	}
+
+	.dates {
+		font-size: 20px;
+	}
+}
+
+@media (min-width: $layout-breakpoint-2xl) {
+	.header {
+		padding: auto 70px auto 70px;
+	}
+	.dates {
+		font-size: 22px;
+	}
+	.titles {
+		&__heading {
+			font-size: 32px;
+		}
+	}
+}
+
+

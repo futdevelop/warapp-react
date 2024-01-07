@@ -1,7 +1,7 @@
 import { useHttp } from "../hooks/http.hook";
 
-const useWarStatusService = () => {
-	const { loading, request, process, error, clearError, setProcess } = useHttp();
+const warStatusService = () => {
+	const { request } = useHttp();
 	const _API_BASE = 'https://russianwarship.rip/api/v2';
 
 	const getWarInfo = async () => {
@@ -22,5 +22,5 @@ const useWarStatusService = () => {
 
 }
 
-export default useWarStatusService;
+export default warStatusService;
 
