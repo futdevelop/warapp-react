@@ -5,7 +5,7 @@ import { classNames } from 'primereact/utils';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
 import MyModal from '../modal/Modal';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchWarStatsByDate } from "../warInfo/warInfoSlice";
 
 import './footer.scss';

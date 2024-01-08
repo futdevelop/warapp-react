@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import warStatusService from "../../Service/WarStatusService";
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWarInfo } from "./headerSlice";
-import { createSelector } from 'reselect'
 
 import './header.scss';
 
 const Header = ({ }) => {
   const { date, day, dataLoaded } = useSelector(state => state.header);
-
   const [currentLan, setCurrentLan] = useState('ua');
   const { i18n, t } = useTranslation();
 

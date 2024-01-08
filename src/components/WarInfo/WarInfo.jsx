@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import statsData from "../../constants/index";
 import { useTranslation } from 'react-i18next';
 import { fetchWarStats } from "./warInfoSlice";
@@ -7,26 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import './warinfo.scss';
 
 const WarInfo = () => {
-	// const data = useSelector(state => state.warInfo.dataStats);
-   const data = useSelector(state => {
-		window.localStorage.setItem('data', JSON.stringify(state.warInfo.dataStats));
-		if(window.localStorage.getItem('data')) {
-			return JSON.parse(window.localStorage.getItem('data'));
-		} else {
-			window.localStorage.setItem('data', JSON.stringify(state.warInfo.dataStats));
-			return state.warInfo.dataStats;
-		}
-	});
-	
-		const dataLoaded = useSelector(state => state.warInfo.dataLoaded);
-  		const dataForToday = useSelector(state => state.warInfo.dataForToday);
+	const data = useSelector(state => state.warInfo.dataStats);
+	const dataLoaded = useSelector(state => state.warInfo.dataLoaded);
+  	const dataForToday = useSelector(state => state.warInfo.dataForToday);
 
-  const { t } = useTranslation();
-  const dispatch = useDispatch(); 
+  	const { t } = useTranslation();
+  	const dispatch = useDispatch(); 
 
-  useEffect(() => {
-	!dataLoaded &&	dispatch(fetchWarStats());
-  }, [])	
+  	useEffect(() => {
+		!dataLoaded &&	dispatch(fetchWarStats());
+  	}, [])	
 
 		return (
 			<div className="war-info">
