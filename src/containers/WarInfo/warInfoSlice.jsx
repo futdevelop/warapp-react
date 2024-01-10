@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import warStatusService from '../../Service/WarStatusService';
+import warStatusService from '../../Service/WarStatusService.js';
 import { updateData } from '../Header/headerSlice';
 
 const initialState = {
@@ -9,7 +9,6 @@ const initialState = {
 	dataForToday: {},
 }
 
-// Початкова загрузка данних по втратам
 export const fetchWarStats = () => (dispatch) => {
 	const { getWarStatistics } = warStatusService();
 	 dispatch(dataFetching());
@@ -20,7 +19,6 @@ export const fetchWarStats = () => (dispatch) => {
 		  .catch(() => dispatch(dataFetchedError()))
 }
 
-// Загрузка даних по втратам по даті
 export const fetchWarStatsByDate = (date) => (dispatch) => {
    const { getWarStatistics } = warStatusService();
     dispatch(dataFetching());

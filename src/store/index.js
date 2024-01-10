@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import header from '../components/Header/headerSlice';
-import warInfo from '../components/warInfo/warInfoSlice';
+import header from '../containers/Header/headerSlice';
+import warInfo from '../containers/WarInfo/warInfoSlice';
 
 const stringMiddleware = store => next => action => {
 		if(typeof action === 'string') {
@@ -32,7 +32,7 @@ const loadFromLocalStorage = () => {
 }
 
 const store = configureStore({
-	reducer: {header, warInfo},
+	reducer: { header, warInfo },
 	preloadedState: loadFromLocalStorage(),
 	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
 	devTools: process.env.NODE_ENV != 'production'

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-
-import WarInfo from "./components/warInfo/WarInfo";
-import Header from "./components/Header/Header";
-import Footer from './components/Footer/Footer';
+import WarInfo from "../src/containers/WarInfo/WarInfo";
+import Header from "./containers/Header/Header";
+import Footer from './containers/Footer/Footer';
 import { useSelector } from 'react-redux';
 import PulseLoader from "react-spinners/PulseLoader";
 
@@ -29,6 +27,8 @@ const App = () => {
               aria-label="Loading Spinner"
               data-testid="loader"/>
           </div>
-      )}}
+      )}
+    }
+
 
 export default App;
