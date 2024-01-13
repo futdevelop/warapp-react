@@ -1,4 +1,6 @@
-const DumbFooter = ({ 
+import './styles.scss';
+
+const Footer = ({ 
 		fetchData,
 		isOpenModal,
 		errors,
@@ -69,4 +71,4 @@ const DumbFooter = ({
 			</footer>
 		)
 
-export default DumbFooter;
+export default Footer;

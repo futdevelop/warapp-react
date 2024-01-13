@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWarInfo } from "./headerSlice";
-import DumbHeader from '../../components/DumbHeader/DumbHeader'
+import { fetchWarInfo } from "../../store/headerSlice";
+import Header from '../../components/Header'
+import { header } from '../../utils/selectors';
 
-import './header.scss';
-
-const Header = () => {
-  const { date, day, dataLoaded } = useSelector(state => state.header);
+const HeaderContainer = () => {
+  const { date, day, dataLoaded } = useSelector(header);
   const [currentLan, setCurrentLan] = useState('ua');
   const { i18n, t } = useTranslation();
 
@@ -36,7 +35,7 @@ const Header = () => {
     let uaBtnClassName = currentLan == 'ua' ? 'header__language-btn_active' : 'header__language-btn';
 
 			return (
-        <DumbHeader 
+        <Header 
           changeLanguage={(language) => changeLanguage(language)}
           enBtnClassName={enBtnClassName}
           uaBtnClassName={uaBtnClassName}
@@ -47,4 +46,4 @@ const Header = () => {
       )
 }
 
-export default Header;
+export default HeaderContainer;

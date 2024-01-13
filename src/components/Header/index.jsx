@@ -1,4 +1,6 @@
-const DumbHeader = ({
+import './styles.scss';
+
+const Header = ({
     changeLanguage,
     enBtnClassName,
     uaBtnClassName,
@@ -31,4 +33,4 @@ const DumbHeader = ({
       )
 }
 
-export default DumbHeader;
+export default Header;

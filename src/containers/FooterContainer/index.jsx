@@ -5,14 +5,12 @@ import { classNames } from 'primereact/utils';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '@iconify/react';
 import { useDispatch } from "react-redux";
-import { fetchWarStatsByDate } from "../../containers/WarInfo/warInfoSlice";
+import { fetchWarStatsByDate } from "../../store/warInfoSlice";
 import MyModal from '../modal/Modal';
 
-import DumbFooter from '../../components/DumbFooter/DumbFooter';
+import Footer from '../../components/Footer';
 
-import './footer.scss';
-
-const Footer = ({ }) => {
+const FooterContainer = ({ }) => {
 	const [prevValue, setPrevValue] = useState('');
 	const [errors, setErrors] = useState(); 
    const [isOpenModal, setIsOpenModal] = useState(false);
@@ -78,7 +76,7 @@ const Footer = ({ }) => {
 
 		return (
 			<>
-				<DumbFooter 
+				<Footer 
 					errors={errors}
 					isOpenModal={isOpenModal}
 					hide={hide}
@@ -99,4 +97,4 @@ const Footer = ({ }) => {
 		)
 }
 
-export default Footer;
+export default FooterContainer;

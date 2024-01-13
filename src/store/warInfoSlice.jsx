@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import warStatusService from '../../Service/WarStatusService.js';
-import { updateData } from '../Header/headerSlice';
+import useWarStatusApi from '../hooks/useWarStatusApi.js';
+import { updateData } from '../store/headerSlice.jsx';
 
 const initialState = {
 	statusLoading: 'idle',
@@ -10,7 +10,7 @@ const initialState = {
 }
 
 export const fetchWarStats = () => (dispatch) => {
-	const { getWarStatistics } = warStatusService();
+	const { getWarStatistics } = useWarStatusApi();
 	 dispatch(dataFetching());
 	 getWarStatistics()
 		  .then(data => {
@@ -20,7 +20,7 @@ export const fetchWarStats = () => (dispatch) => {
 }
 
 export const fetchWarStatsByDate = (date) => (dispatch) => {
-   const { getWarStatistics } = warStatusService();
+   const { getWarStatistics } = useWarStatusApi();
     dispatch(dataFetching());
     getWarStatistics(date)
         .then(data => {

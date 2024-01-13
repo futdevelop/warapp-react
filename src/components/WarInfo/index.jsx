@@ -1,4 +1,6 @@
-const DumbWarInfo = ({ data, dataForToday, t, statsData }) => {
+import './styles.scss';
+
+const WarInfo = ({ data, dataForToday, t, statsData }) => {
 		return (
 			<div className="war-info">
 				{statsData.map((statData, index) => {
@@ -21,4 +23,4 @@ const DumbWarInfo = ({ data, dataForToday, t, statsData }) => {
 		)
 	}
 
-export default DumbWarInfo;
+export default WarInfo;

@@ -1,6 +1,6 @@
-import WarInfo from "../src/containers/WarInfo/WarInfo";
-import Header from "./containers/Header/Header";
-import Footer from './containers/Footer/Footer';
+import WarInfo from "./containers/WarInfoContainer";
+import Header from "./containers/HeaderContainer";
+import Footer from './containers/FooterContainer';
 import { useSelector } from 'react-redux';
 import PulseLoader from "react-spinners/PulseLoader";
 

@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react'
 import statsData from "../../constants/index";
 import { useTranslation } from 'react-i18next';
-import { fetchWarStats } from "./warInfoSlice";
+import { fetchWarStats } from "../../store/warInfoSlice";
 import { useDispatch, useSelector } from "react-redux";
-import DumbWarInfo from '../../components/DumbWarInfo/DumbWarInfo';
+import WarInfo from '../../components/WarInfo';
+import { selectStats, statusLoading, increaseData } from '../../utils/selectors';
 
-import './warinfo.scss';
-
-const WarInfo = () => {
-	const data = useSelector(state => state.warInfo.dataStats);
-	const dataLoaded = useSelector(state => state.warInfo.dataLoaded);
-  	const dataForToday = useSelector(state => state.warInfo.dataForToday);
+const WarInfoContainer = () => {
+	const data = useSelector(selectStats);
+	const dataLoaded = useSelector(statusLoading);
+  	const dataForToday = useSelector(increaseData);
 
   	const { t } = useTranslation();
   	const dispatch = useDispatch(); 
@@ -20,7 +19,7 @@ const WarInfo = () => {
   	}, [])	
 
 		return (
-			<DumbWarInfo 
+			<WarInfo 
 				statsData={statsData}
 				data={data}
 				dataForToday={dataForToday}
@@ -29,4 +28,4 @@ const WarInfo = () => {
 		)
 	}
 
-export default WarInfo;
+export default WarInfoContainer;

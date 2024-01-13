@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import emailjs from '@emailjs/browser';
-import SignUpSchema from '../../Validation/formValidation';
+import SignUpSchema from '../../utils/formValidation';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import './modal.scss'
