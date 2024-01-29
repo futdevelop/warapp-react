@@ -1,1 +1,1 @@
-export const apiSlice = state => state.apiSlice;
+export const apiSlice = state => state.apiSlice
