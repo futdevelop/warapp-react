@@ -92,7 +92,7 @@ const FooterContainer = () => {
 	return (
 		<>
 			<Footer
-            errors={errors}
+        errors={errors}
 				isOpenModal={isOpenModal}
 				hide={hide}
 				show={show}
