@@ -1,31 +1,21 @@
-import React, { useEffect } from 'react'
-import statsData from "../../constants/index";
+import statsData from '../../constants/index';
 import { useTranslation } from 'react-i18next';
-import { fetchWarStats } from "../../store/warInfoSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import WarInfo from '../../components/WarInfo';
-import { selectStats, statusLoading, increaseData } from '../../utils/selectors';
+import { apiSlice } from '../../store/selectors';
 
 const WarInfoContainer = () => {
-	const data = useSelector(selectStats);
-	const dataLoaded = useSelector(statusLoading);
-  	const dataForToday = useSelector(increaseData);
+	const { stats, statsForToday } = useSelector(apiSlice);
+	const { t } = useTranslation();
 
-  	const { t } = useTranslation();
-  	const dispatch = useDispatch(); 
-
-  	useEffect(() => {
-		!dataLoaded &&	dispatch(fetchWarStats());
-  	}, [])	
-
-		return (
-			<WarInfo 
-				statsData={statsData}
-				data={data}
-				dataForToday={dataForToday}
-				t={t}
-			/>
-		)
-	}
+	return (
+		<WarInfo
+			statsData={statsData}
+			stats={stats}
+			statsForToday={statsForToday}
+			t={t}
+		/>
+	);
+};
 
 export default WarInfoContainer;

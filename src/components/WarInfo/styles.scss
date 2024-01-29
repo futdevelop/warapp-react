@@ -47,7 +47,7 @@ $layout-breakpoint-2xl: 1536px;
 			font-weight: normal;
 			font-size: 18px;
 			margin: 0;
-			color: #71797E;
+			color: #71797e;
 		}
 	}
 }
@@ -78,10 +78,9 @@ $layout-breakpoint-2xl: 1536px;
 				font-weight: normal;
 				font-size: 18px;
 				margin: 0;
-				color: #71797E;
+				color: #71797e;
 			}
 		}
-
 	}
 }
 
@@ -152,35 +151,35 @@ $layout-breakpoint-2xl: 1536px;
 	}
 }
 
- @media (min-width: 1024px) {
- 	.war-block:nth-child(3n) {
- 		border-right: 0;
- 		color: gray;
- 	}
- } 
+@media (min-width: 1024px) {
+	.war-block:nth-child(3n) {
+		border-right: 0;
+		color: gray;
+	}
+}
 
- @media(min-width: 1024px) {
- 	.war-info__block:nth-child(14n), 
- 	.war-info__block:nth-child(13n),
- 	.war-info__block:last-child {
- 		border-bottom: 0;
- 	}
- }
+@media (min-width: 1024px) {
+	.war-info__block:nth-child(14n),
+	.war-info__block:nth-child(13n),
+	.war-info__block:last-child {
+		border-bottom: 0;
+	}
+}
 
- @media(max-width: 1024px) {
- 	.war-info__block:last-child {
- 		border-bottom: 0;
- 	}
- }
+@media (max-width: 1024px) {
+	.war-info__block:last-child {
+		border-bottom: 0;
+	}
+}
 
- @media(max-width: 640px) {
- 	.war-info__block {
- 		border-right: 0;
- 	}
- }
+@media (max-width: 640px) {
+	.war-info__block {
+		border-right: 0;
+	}
+}
 
- @media(max-width: 1024px) {
- 	.war-info__block:nth-child(2n) {
- 		border-right: 0;
- 	}
- }
+@media (max-width: 1024px) {
+	.war-info__block:nth-child(2n) {
+		border-right: 0;
+	}
+}

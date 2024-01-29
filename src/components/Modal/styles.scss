@@ -4,7 +4,6 @@ $layout-breakpoint-lg: 1024px;
 $layout-breakpoint-xl: 1280px;
 $layout-breakpoint-2xl: 1536px;
 
-
 .modal {
 	display: flex;
 	justify-content: center;
@@ -20,7 +19,7 @@ $layout-breakpoint-2xl: 1536px;
 		&-title {
 			font-size: 20px;
 			font-weight: bold;
-			color: #414A4E;
+			color: #414a4e;
 		}
 	}
 }
@@ -33,14 +32,14 @@ $layout-breakpoint-2xl: 1536px;
 		span {
 			text-align: start;
 			padding-left: 10px;
-			color: #414A4E;
+			color: #414a4e;
 			font-weight: bold;
 			margin-bottom: 5px;
 		}
 	}
 
 	&__name-input {
-		background-color: #ECF0F3;
+		background-color: #ecf0f3;
 		text-align: start;
 		border-radius: 0.25rem;
 		padding: 5px 10px 5px 10px;
@@ -61,14 +60,14 @@ $layout-breakpoint-2xl: 1536px;
 		span {
 			text-align: start;
 			padding-left: 10px;
-			color: #414A4E;
+			color: #414a4e;
 			font-weight: bold;
 			margin-bottom: 5px;
 		}
 	}
 
 	&__email-input {
-		background-color: #ECF0F3;
+		background-color: #ecf0f3;
 		border-radius: 0.25rem;
 		padding: 5px 10px 5px 10px;
 		width: 100%;
@@ -88,14 +87,14 @@ $layout-breakpoint-2xl: 1536px;
 		span {
 			text-align: start;
 			padding-left: 10px;
-			color: #414A4E;
+			color: #414a4e;
 			font-weight: bold;
 			margin-bottom: 5px;
 		}
 	}
 
 	&__message-input {
-		background-color: #ECF0F3;
+		background-color: #ecf0f3;
 		border-radius: 0.25rem;
 		padding: 5px 10px 5px 10px;
 		max-height: 150px;
@@ -110,7 +109,7 @@ $layout-breakpoint-2xl: 1536px;
 	&__btn {
 		height: 30px;
 		width: 100%;
-		background-color: #414A4E;
+		background-color: #414a4e;
 		color: white;
 		border-radius: 0.25rem;
 		font-size: 20px;

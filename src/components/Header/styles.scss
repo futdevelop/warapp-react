@@ -24,7 +24,7 @@ $layout-breakpoint-2xl: 1536px;
 		justify-content: space-between;
 		flex-direction: column;
 		align-items: center;
-		background-color: #414A4E;
+		background-color: #414a4e;
 		color: #fff;
 		max-width: 100%;
 		padding: 20px;
@@ -61,19 +61,22 @@ $layout-breakpoint-2xl: 1536px;
 	}
 	&__day {
 		margin: 0;
+		span {
+			color: red;
+		}
 	}
 }
 
 @media (min-width: $layout-breakpoint-sm) {
-		.titles {
-			&__information {
-				text-align: center;
-			}
-
-			&__heading {
-				font-size: 24px;
-			}
+	.titles {
+		&__information {
+			text-align: center;
 		}
+
+		&__heading {
+			font-size: 24px;
+		}
+	}
 }
 
 @media (min-width: $layout-breakpoint-md) {
@@ -160,5 +163,3 @@ $layout-breakpoint-2xl: 1536px;
 		}
 	}
 }
-
-

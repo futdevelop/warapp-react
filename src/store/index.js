@@ -1,24 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import header from './headerSlice';
-import warInfo from './warInfoSlice';
-import { saveStateToLocalStorage, loadStateFromLocalStorage } from '../utils/localStorageUtils';
+import apiSlice from '../store/apiSlice.jsx';
 
 const stringMiddleware = store => next => action => {
-		if(typeof action === 'string') {
-			return next({
-				type: action
-			})
-		} 
-		return next(action)
-}
+	if (typeof action === 'string') {
+		return next({
+			type: action,
+		});
+	}
+	return next(action);
+};
 
 const store = configureStore({
-	reducer: { header, warInfo },
-	preloadedState: loadStateFromLocalStorage(),
-	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
-	devTools: process.env.NODE_ENV != 'production'
-})
-
-store.subscribe(() => saveStateToLocalStorage(store.getState()));
+	reducer: { apiSlice },
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware().concat(stringMiddleware),
+	devTools: process.env.NODE_ENV != 'production',
+});
 
 export default store;
