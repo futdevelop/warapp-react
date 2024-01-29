@@ -89,28 +89,28 @@ const FooterContainer = () => {
 		setErrors({});
 	}, [language]);
 
-return (
-<>
-<Footer
-errors={errors}
-isOpenModal={isOpenModal}
-hide={hide}
-show={show}
-t={t}
-formik={formik}
-formatedDate={formatedDate}
-formikSubmit={formik.handleSubmit}
-formikValue={formik.values.value}
-setFormikValue={e => formik.setFieldValue('value', e.target.value)}
-isFormFieldInvalid={isFormFieldInvalid('value')}
-classNames={classNames}
-fetchData={() => dispatch(fetchWarStats(formatedDate))}
-InputMask={InputMask}
-Icon={Icon}
-ModalContainer={Modal}
-/>
-</>
-);
+	return (
+		<>
+			<Footer
+				errors={errors}
+				isOpenModal={isOpenModal}
+				hide={hide}
+				show={show}
+				t={t}
+				formik={formik}
+				formatedDate={formatedDate}
+				formikSubmit={formik.handleSubmit}
+				formikValue={formik.values.value}
+				setFormikValue={e => formik.setFieldValue('value', e.target.value)}
+				isFormFieldInvalid={isFormFieldInvalid('value')}
+				classNames={classNames}
+				fetchData={() => dispatch(fetchWarStats(formatedDate))}
+				InputMask={InputMask}
+				Icon={Icon}
+				ModalContainer={Modal}
+			/>
+		</>
+	);
 };
 
 export default FooterContainer;

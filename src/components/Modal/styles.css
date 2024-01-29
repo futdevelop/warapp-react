@@ -1,0 +1,136 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.modal__titles {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.modal__titles-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #414a4e;
+}
+
+.content__name-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.content__name-label span {
+  text-align: start;
+  padding-left: 10px;
+  color: #414a4e;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.content__name-input {
+  background-color: #ecf0f3;
+  text-align: start;
+  border-radius: 0.25rem;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+}
+.content__name-error {
+  color: #fb3636;
+  text-align: start;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.content__email-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.content__email-label span {
+  text-align: start;
+  padding-left: 10px;
+  color: #414a4e;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.content__email-input {
+  background-color: #ecf0f3;
+  border-radius: 0.25rem;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+}
+.content__email-error {
+  color: #fb3636;
+  text-align: start;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.content__message-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.content__message-label span {
+  text-align: start;
+  padding-left: 10px;
+  color: #414a4e;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.content__message-input {
+  background-color: #ecf0f3;
+  border-radius: 0.25rem;
+  padding: 5px 10px 5px 10px;
+  max-height: 150px;
+}
+.content__message-error {
+  color: #fb3636;
+  text-align: start;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.content__btn {
+  height: 30px;
+  width: 100%;
+  background-color: #414a4e;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  .modal {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+@media (min-width: 768px) {
+  .modal {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .modal {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+@media (min-width: 1280px) {
+  .modal {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+}
+@media (min-width: 1536px) {
+  .modal {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}/*# sourceMappingURL=styles.css.map */

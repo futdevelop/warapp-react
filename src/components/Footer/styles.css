@@ -1,0 +1,208 @@
+.footer {
+  padding: 0;
+  margin: 0;
+  background-color: #414a4e;
+  color: #fff;
+}
+.footer-formblock__form {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+.footer-formblock__text {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer-formblock__input {
+  color: black;
+  padding-left: 10px;
+  height: 30px;
+  width: 200px;
+  border-radius: 0.25rem;
+  font-size: 24px;
+}
+.footer-formblock__input_validation {
+  color: #d93434;
+}
+.footer-formblock__btn {
+  height: 30px;
+  width: 180px;
+  border-radius: 0.25rem;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px white solid;
+  margin-top: 10px;
+}
+.footer-reviews__text {
+  font-size: 14px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.footer-reviews__btn {
+  height: 30px;
+  width: 180px;
+  border-radius: 0.5rem;
+  border: 1px white solid;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+}
+.footer-contact__github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.footer-contact__github_text {
+  font-size: 14px;
+}
+.footer-contact__github_icon {
+  margin-right: 5px;
+}
+.footer-contact__telegram {
+  display: flex;
+  align-items: center;
+}
+.footer-contact__telegram_icon {
+  margin-right: 5px;
+}
+.footer-contact__telegram_text {
+  font-size: 14px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 10px 50px 10px;
+}
+.footer-top__formblock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+.footer-top__symbol {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.footer-bottom {
+  display: flex;
+  padding: 15px 20px 15px 20px;
+  background-color: #363d40;
+  color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer-bottom__reviews {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.footer-bottom__contact {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .footer-formblock__text {
+    font-size: 20px;
+  }
+  .footer-top {
+    height: auto;
+    flex-direction: row;
+  }
+  .footer-top__symbol {
+    width: 30%;
+    margin-top: 0;
+  }
+  .footer-bottom__reviews {
+    flex-direction: row;
+  }
+}
+@media (min-width: 768px) {
+  .footer-formblock__text {
+    font-size: 20px;
+  }
+  .footer-reviews__text {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  .footer-contact__github_text {
+    font-size: 14px;
+  }
+  .footer-contact__telegram_text {
+    font-size: 14px;
+  }
+  .footer-top {
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .footer-top__formblock {
+    width: 70%;
+  }
+  .footer-top__symbol {
+    width: 30%;
+  }
+  .footer-bottom {
+    flex-direction: row;
+  }
+  .footer-bottom__reviews {
+    justify-content: start;
+  }
+  .footer-bottom__contact {
+    margin-top: 0;
+    justify-content: start;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-formblock__text {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  .footer-formblock__btn {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  .footer-reviews__btn {
+    margin-left: 10px;
+  }
+  .footer-top__formblock {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1280px) {
+  .footer-formblock__text {
+    font-size: 20px;
+  }
+  .footer-top__formblock {
+    width: 60%;
+  }
+  .footer-top__symbol {
+    width: 40%;
+  }
+}
+@media (min-width: 1536px) {
+  .footer-formblock__text {
+    font-size: 23px;
+  }
+  .footer-contact__github_text {
+    font-size: 16px;
+  }
+  .footer-contact__github_text {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=styles.css.map */

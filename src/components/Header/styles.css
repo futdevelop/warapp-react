@@ -1,0 +1,138 @@
+.header__language {
+  gap: 1rem;
+  padding-left: 40px;
+  background-color: #363d40;
+  color: white;
+}
+.header__language-btn {
+  text-decoration: underline;
+  margin-right: 5px;
+}
+.header__language-btn_active {
+  color: red;
+  margin-right: 5px;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  background-color: #414a4e;
+  color: #fff;
+  max-width: 100%;
+  padding: 20px;
+}
+.header__content-titles {
+  font-weight: bold;
+  margin-left: 10px;
+}
+.header__content-dates {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  align-items: flex-end;
+  font-weight: bold;
+}
+
+.titles__information {
+  text-align: start;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.titles__heading {
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+.dates__date {
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+.dates__day {
+  margin: 0;
+}
+.dates__day span {
+  color: red;
+}
+
+@media (min-width: 640px) {
+  .titles__information {
+    text-align: center;
+  }
+  .titles__heading {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    padding: auto 30px auto 30px;
+  }
+  .header__content {
+    flex-direction: row;
+  }
+  .titles {
+    margin-left: 20px;
+  }
+  .titles__information {
+    text-align: start;
+    margin-bottom: 0;
+  }
+  .titles__heading {
+    font-size: 20px;
+  }
+  .dates {
+    flex-direction: column;
+    margin-top: 0;
+    font-size: 16px;
+  }
+  .dates__date {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    padding: auto 40px auto 40px;
+  }
+  .titles {
+    margin-left: 30px;
+  }
+  .titles__information {
+    font-size: 16px;
+  }
+  .titles__heading {
+    font-size: 20px;
+  }
+  .dates {
+    width: 30%;
+    font-size: 18px;
+  }
+}
+@media (min-width: 1280px) {
+  .header {
+    padding: auto 50px auto 50px;
+  }
+  .titles {
+    margin-left: 50px;
+  }
+  .titles-information {
+    font-size: 18px;
+  }
+  .titles__heading {
+    font-size: 24px;
+  }
+  .dates {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1536px) {
+  .header {
+    padding: auto 70px auto 70px;
+  }
+  .dates {
+    font-size: 22px;
+  }
+  .titles__heading {
+    font-size: 32px;
+  }
+}/*# sourceMappingURL=styles.css.map */
