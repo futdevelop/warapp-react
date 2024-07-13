@@ -30,5 +30,9 @@
 	"modal_title1": "Send feedback to the author by mail.",
 	"modal_title2": "He will be pleased :)",
 	"modal_success": "Thank you for your review.",
-	"modal_error": "Something went wrong"
+	"modal_error": "Something went wrong",
+	"name_input": "Your name",
+	"email_input": "Your email",
+	"message_input": "Your message",
+	"submit_button": "Submit"
 }
